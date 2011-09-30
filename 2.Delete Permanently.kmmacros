@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>IsActive</key>
+		<true/>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>File</key>
+						<data>
+						</data>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>NewFile</key>
+						<string></string>
+						<key>Text</key>
+						<string>tell application "Finder"
+    set myPosixPath to selection as text --returns an alias path
+    set myPosixPath to POSIX path of myPosixPath --set it to posix style path with backslashes
+
+    --identify whether it's a file or folder. Only for the warning dialog.
+    if character -1 of myPosixPath is "/" then
+        set itemType to "folder"
+    else
+        set itemType to "file"
+    end if
+
+    --display a warning
+    display dialog myPosixPath &amp; "
+
+This cannot be undone." with title "Really permanently delete this " &amp; itemType &amp; "?"
+do shell script "rm -rf " &amp; quoted form of myPosixPath --execute a shell script to delete the item
+end tell</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+						<key>Variable</key>
+						<string>Variable</string>
+					</dict>
+				</array>
+				<key>IsActive</key>
+				<true/>
+				<key>Name</key>
+				<string>Delete Permanently</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>51</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>512</integer>
+						<key>TriggerRepeat</key>
+						<false/>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>633E4C0F-B709-4A51-8125-B4862483793D</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>KG-App-Finder</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>Alias</key>
+					<data>
+					AAAAAAFsAAIAAQlLR19NQlBfSEQAAAAAAAAA
+					AAAAAAAAAAAAAADKTZwoSCsAAAAAAHMKRmlu
+					ZGVyLmFwcAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					AAAAAAAAAAC5psoo1ucAAAAAAAAAAP////8A
+					AAkgAAAAAAAAAAAAAAAAAAAADENvcmVTZXJ2
+					aWNlcwAQAAgAAMpNcfgAAAARAAgAAMoorLcA
+					AAABAAwAAABzAAAAZgAAAGUAAgAzS0dfTUJQ
+					X0hEOlN5c3RlbToATGlicmFyeToAQ29yZVNl
+					cnZpY2VzOgBGaW5kZXIuYXBwAAAOABYACgBG
+					AGkAbgBkAGUAcgAuAGEAcABwAA8AFAAJAEsA
+					RwBfAE0AQgBQAF8ASABEABIAJlN5c3RlbS9M
+					aWJyYXJ5L0NvcmVTZXJ2aWNlcy9GaW5kZXIu
+					YXBwABMAAS8A//8AAA==
+					</data>
+					<key>BundleIdentifier</key>
+					<string>com.apple.finder</string>
+					<key>Creator</key>
+					<integer>1296122707</integer>
+					<key>FileType</key>
+					<integer>1179534418</integer>
+					<key>Name</key>
+					<string>Finder.app</string>
+					<key>NewFile</key>
+					<string>/System/Library/CoreServices/Finder.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>UID</key>
+		<string>0F2EE715-C47E-4B47-BF09-CC1130281229</string>
+	</dict>
+</array>
+</plist>
