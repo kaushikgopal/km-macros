@@ -26,3 +26,15 @@ some of the scripts are application specific, so i suggest you create a new grou
 
     This is pretty awesome. I've always whined that Google Chrome doesn't sync "[Keyword Search engines](http://www.google.com/support/chrome/bin/answer.py?answer=95653)" and so having to set this up each time I wipe my settings is a pain. Moreover, if shift to Safari, this had to be setup again. With this script, I get some sane uniformity for my browsing search experience. KM's awesome developer Peter Lewis whipped this one personally for me. He's one of the awesomest most responsive developers. 
 
+4. Text Manipulation Snippets
+    
+    + Delete Line
+    + Dupicate Line
+    + Fence Text Block  : Create two long fence lines on selected text
+    + MD Inline Link    : Creates a markdown link on the selected text from the clipboard stored URL
+    + Prepend
+    + Wrap with '
+    + Wrap with "
+    + Wrap with (
+    + Wrap with [
+    + Wrap with {
