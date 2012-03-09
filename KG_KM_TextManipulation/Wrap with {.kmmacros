@@ -95,30 +95,30 @@
 						<key>IsActive</key>
 						<true/>
 						<key>IsDisclosed</key>
-						<false/>
+						<true/>
 						<key>MacroActionType</key>
 						<string>IfThenElse</string>
 						<key>ThenActions</key>
 						<array>
 							<dict>
 								<key>Action</key>
-								<string>ByPasting</string>
+								<string>ByTyping</string>
 								<key>IsActive</key>
-								<false/>
+								<true/>
 								<key>IsDisclosed</key>
 								<false/>
 								<key>MacroActionType</key>
 								<string>InsertText</string>
 								<key>Paste</key>
-								<true/>
+								<false/>
 								<key>Text</key>
 								<string>{}</string>
 							</dict>
 							<dict>
 								<key>IsActive</key>
-								<true/>
+								<false/>
 								<key>IsDisclosed</key>
-								<true/>
+								<false/>
 								<key>KeyCode</key>
 								<integer>33</integer>
 								<key>MacroActionType</key>
@@ -130,9 +130,9 @@
 							</dict>
 							<dict>
 								<key>IsActive</key>
-								<true/>
+								<false/>
 								<key>IsDisclosed</key>
-								<true/>
+								<false/>
 								<key>KeyCode</key>
 								<integer>30</integer>
 								<key>MacroActionType</key>
