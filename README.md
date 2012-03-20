@@ -32,9 +32,9 @@ some of the scripts are application specific, so i suggest you create a new grou
     + Dupicate Line
     + Fence Text Block  : Create two long fence lines on selected text
     + MD Inline Link    : Creates a markdown link on the selected text from the clipboard stored URL
-    + Prepend
-    + Wrap with '       : if no text selected then inserts closing quote. If you have a text selected it wraps with character
-    + Wrap with "       : all the wrap macros follow above principle
-    + Wrap with (
-    + Wrap with [
-    + Wrap with {
+    + WrapTextMacros    : see [my blog post on the subject](http://journal.kaush.co/453/true-textmate-like-auto-pairing-with-bbedit-using-keyboard-maestro)
+        - Wrap with '   : if no text selected then inserts closing quote. If you have a text selected it wraps with character
+        - Wrap with "   : if you hit the enter key quickly after entering the open bracket, KM magically auto-pairs with indents
+        - Wrap with (   : all the wrap macros follow above principle
+        - Wrap with [
+        - Wrap with {
