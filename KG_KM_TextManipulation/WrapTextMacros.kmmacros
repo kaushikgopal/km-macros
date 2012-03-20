@@ -13,30 +13,76 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>Conditions</key>
+						<dict>
+							<key>ConditionList</key>
+							<array>
+								<dict>
+									<key>ConditionType</key>
+									<string>Menu</string>
+									<key>MenuConditionSelectionType</key>
+									<string>Is</string>
+									<key>MenuConditionType</key>
+									<string>IsNotEnabled</string>
+									<key>MenuTitle</key>
+									<string>Cut</string>
+								</dict>
+							</array>
+							<key>ConditionListMatch</key>
+							<string>All</string>
+						</dict>
+						<key>ElseActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>KeyCode</key>
+								<integer>7</integer>
+								<key>MacroActionType</key>
+								<string>SimulateKeystroke</string>
+								<key>Modifiers</key>
+								<integer>256</integer>
+								<key>ReleaseAll</key>
+								<false/>
+							</dict>
+						</array>
 						<key>IsActive</key>
 						<true/>
 						<key>IsDisclosed</key>
 						<false/>
-						<key>JustDisplay</key>
-						<false/>
 						<key>MacroActionType</key>
-						<string>SetClipboardToText</string>
-						<key>Text</key>
-						<string>NOSELECTION</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
+						<string>IfThenElse</string>
+						<key>ThenActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>Comment</string>
+								<key>Text</key>
+								<string>This is to check if text is selected or not. If a word or bunch of text is selected, this option gets enabled.</string>
+								<key>Title</key>
+								<string>Menu Command Cut is not available</string>
+							</dict>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>JustDisplay</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>SetClipboardToText</string>
+								<key>Text</key>
+								<string>NOSELECTION</string>
+							</dict>
+						</array>
+						<key>TimeOutAbortsMacro</key>
 						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>KeyCode</key>
-						<integer>7</integer>
-						<key>MacroActionType</key>
-						<string>SimulateKeystroke</string>
-						<key>Modifiers</key>
-						<integer>256</integer>
-						<key>ReleaseAll</key>
-						<false/>
 					</dict>
 					<dict>
 						<key>Conditions</key>
@@ -87,15 +133,15 @@
 								<key>MacroActionType</key>
 								<string>DeletePastClipboard</string>
 								<key>Past</key>
-								<integer>2</integer>
+								<integer>1</integer>
 								<key>PastExpression</key>
-								<string>2</string>
+								<string>1</string>
 							</dict>
 						</array>
 						<key>IsActive</key>
 						<true/>
 						<key>IsDisclosed</key>
-						<false/>
+						<true/>
 						<key>MacroActionType</key>
 						<string>IfThenElse</string>
 						<key>ThenActions</key>
@@ -168,18 +214,6 @@
 						<key>MacroActionType</key>
 						<string>DeletePastClipboard</string>
 						<key>Past</key>
-						<integer>1</integer>
-						<key>PastExpression</key>
-						<string>1</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
-						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>MacroActionType</key>
-						<string>DeletePastClipboard</string>
-						<key>Past</key>
 						<integer>0</integer>
 						<key>PastExpression</key>
 						<string>0</string>
@@ -224,30 +258,76 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>Conditions</key>
+						<dict>
+							<key>ConditionList</key>
+							<array>
+								<dict>
+									<key>ConditionType</key>
+									<string>Menu</string>
+									<key>MenuConditionSelectionType</key>
+									<string>Is</string>
+									<key>MenuConditionType</key>
+									<string>IsNotEnabled</string>
+									<key>MenuTitle</key>
+									<string>Cut</string>
+								</dict>
+							</array>
+							<key>ConditionListMatch</key>
+							<string>All</string>
+						</dict>
+						<key>ElseActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>KeyCode</key>
+								<integer>7</integer>
+								<key>MacroActionType</key>
+								<string>SimulateKeystroke</string>
+								<key>Modifiers</key>
+								<integer>256</integer>
+								<key>ReleaseAll</key>
+								<false/>
+							</dict>
+						</array>
 						<key>IsActive</key>
 						<true/>
 						<key>IsDisclosed</key>
 						<false/>
-						<key>JustDisplay</key>
-						<false/>
 						<key>MacroActionType</key>
-						<string>SetClipboardToText</string>
-						<key>Text</key>
-						<string>NOSELECTION</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
+						<string>IfThenElse</string>
+						<key>ThenActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>Comment</string>
+								<key>Text</key>
+								<string>This is to check if text is selected or not. If a word or bunch of text is selected, this option gets enabled.</string>
+								<key>Title</key>
+								<string>Menu Command Cut is not available</string>
+							</dict>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>JustDisplay</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>SetClipboardToText</string>
+								<key>Text</key>
+								<string>NOSELECTION</string>
+							</dict>
+						</array>
+						<key>TimeOutAbortsMacro</key>
 						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>KeyCode</key>
-						<integer>7</integer>
-						<key>MacroActionType</key>
-						<string>SimulateKeystroke</string>
-						<key>Modifiers</key>
-						<integer>256</integer>
-						<key>ReleaseAll</key>
-						<false/>
 					</dict>
 					<dict>
 						<key>Conditions</key>
@@ -298,9 +378,9 @@
 								<key>MacroActionType</key>
 								<string>DeletePastClipboard</string>
 								<key>Past</key>
-								<integer>2</integer>
+								<integer>1</integer>
 								<key>PastExpression</key>
-								<string>2</string>
+								<string>1</string>
 							</dict>
 						</array>
 						<key>IsActive</key>
@@ -379,18 +459,6 @@
 						<key>MacroActionType</key>
 						<string>DeletePastClipboard</string>
 						<key>Past</key>
-						<integer>1</integer>
-						<key>PastExpression</key>
-						<string>1</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
-						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>MacroActionType</key>
-						<string>DeletePastClipboard</string>
-						<key>Past</key>
 						<integer>0</integer>
 						<key>PastExpression</key>
 						<string>0</string>
@@ -435,30 +503,76 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>Conditions</key>
+						<dict>
+							<key>ConditionList</key>
+							<array>
+								<dict>
+									<key>ConditionType</key>
+									<string>Menu</string>
+									<key>MenuConditionSelectionType</key>
+									<string>Is</string>
+									<key>MenuConditionType</key>
+									<string>IsNotEnabled</string>
+									<key>MenuTitle</key>
+									<string>Cut</string>
+								</dict>
+							</array>
+							<key>ConditionListMatch</key>
+							<string>All</string>
+						</dict>
+						<key>ElseActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>KeyCode</key>
+								<integer>7</integer>
+								<key>MacroActionType</key>
+								<string>SimulateKeystroke</string>
+								<key>Modifiers</key>
+								<integer>256</integer>
+								<key>ReleaseAll</key>
+								<false/>
+							</dict>
+						</array>
 						<key>IsActive</key>
 						<true/>
 						<key>IsDisclosed</key>
 						<false/>
-						<key>JustDisplay</key>
-						<false/>
 						<key>MacroActionType</key>
-						<string>SetClipboardToText</string>
-						<key>Text</key>
-						<string>NOSELECTION</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
+						<string>IfThenElse</string>
+						<key>ThenActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>Comment</string>
+								<key>Text</key>
+								<string>This is to check if text is selected or not. If a word or bunch of text is selected, this option gets enabled.</string>
+								<key>Title</key>
+								<string>Menu Command Cut is not available</string>
+							</dict>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>JustDisplay</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>SetClipboardToText</string>
+								<key>Text</key>
+								<string>NOSELECTION</string>
+							</dict>
+						</array>
+						<key>TimeOutAbortsMacro</key>
 						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>KeyCode</key>
-						<integer>7</integer>
-						<key>MacroActionType</key>
-						<string>SimulateKeystroke</string>
-						<key>Modifiers</key>
-						<integer>256</integer>
-						<key>ReleaseAll</key>
-						<false/>
 					</dict>
 					<dict>
 						<key>Conditions</key>
@@ -509,9 +623,9 @@
 								<key>MacroActionType</key>
 								<string>DeletePastClipboard</string>
 								<key>Past</key>
-								<integer>2</integer>
+								<integer>1</integer>
 								<key>PastExpression</key>
-								<string>2</string>
+								<string>1</string>
 							</dict>
 						</array>
 						<key>IsActive</key>
@@ -701,18 +815,6 @@
 						<key>MacroActionType</key>
 						<string>DeletePastClipboard</string>
 						<key>Past</key>
-						<integer>1</integer>
-						<key>PastExpression</key>
-						<string>1</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
-						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>MacroActionType</key>
-						<string>DeletePastClipboard</string>
-						<key>Past</key>
 						<integer>0</integer>
 						<key>PastExpression</key>
 						<string>0</string>
@@ -757,30 +859,76 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>Conditions</key>
+						<dict>
+							<key>ConditionList</key>
+							<array>
+								<dict>
+									<key>ConditionType</key>
+									<string>Menu</string>
+									<key>MenuConditionSelectionType</key>
+									<string>Is</string>
+									<key>MenuConditionType</key>
+									<string>IsNotEnabled</string>
+									<key>MenuTitle</key>
+									<string>Cut</string>
+								</dict>
+							</array>
+							<key>ConditionListMatch</key>
+							<string>All</string>
+						</dict>
+						<key>ElseActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>KeyCode</key>
+								<integer>7</integer>
+								<key>MacroActionType</key>
+								<string>SimulateKeystroke</string>
+								<key>Modifiers</key>
+								<integer>256</integer>
+								<key>ReleaseAll</key>
+								<false/>
+							</dict>
+						</array>
 						<key>IsActive</key>
 						<true/>
 						<key>IsDisclosed</key>
 						<false/>
-						<key>JustDisplay</key>
-						<false/>
 						<key>MacroActionType</key>
-						<string>SetClipboardToText</string>
-						<key>Text</key>
-						<string>NOSELECTION</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
+						<string>IfThenElse</string>
+						<key>ThenActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>Comment</string>
+								<key>Text</key>
+								<string>This is to check if text is selected or not. If a word or bunch of text is selected, this option gets enabled.</string>
+								<key>Title</key>
+								<string>Menu Command Cut is not available</string>
+							</dict>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>JustDisplay</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>SetClipboardToText</string>
+								<key>Text</key>
+								<string>NOSELECTION</string>
+							</dict>
+						</array>
+						<key>TimeOutAbortsMacro</key>
 						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>KeyCode</key>
-						<integer>7</integer>
-						<key>MacroActionType</key>
-						<string>SimulateKeystroke</string>
-						<key>Modifiers</key>
-						<integer>256</integer>
-						<key>ReleaseAll</key>
-						<false/>
 					</dict>
 					<dict>
 						<key>Conditions</key>
@@ -831,9 +979,9 @@
 								<key>MacroActionType</key>
 								<string>DeletePastClipboard</string>
 								<key>Past</key>
-								<integer>2</integer>
+								<integer>1</integer>
 								<key>PastExpression</key>
-								<string>2</string>
+								<string>1</string>
 							</dict>
 						</array>
 						<key>IsActive</key>
@@ -918,7 +1066,7 @@
 								<key>IsActive</key>
 								<true/>
 								<key>IsDisclosed</key>
-								<true/>
+								<false/>
 								<key>MacroActionType</key>
 								<string>PauseUntil</string>
 								<key>TimeOutAbortsMacro</key>
@@ -1023,18 +1171,6 @@
 						<key>MacroActionType</key>
 						<string>DeletePastClipboard</string>
 						<key>Past</key>
-						<integer>1</integer>
-						<key>PastExpression</key>
-						<string>1</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
-						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>MacroActionType</key>
-						<string>DeletePastClipboard</string>
-						<key>Past</key>
 						<integer>0</integer>
 						<key>PastExpression</key>
 						<string>0</string>
@@ -1079,30 +1215,76 @@
 				<key>Actions</key>
 				<array>
 					<dict>
+						<key>Conditions</key>
+						<dict>
+							<key>ConditionList</key>
+							<array>
+								<dict>
+									<key>ConditionType</key>
+									<string>Menu</string>
+									<key>MenuConditionSelectionType</key>
+									<string>Is</string>
+									<key>MenuConditionType</key>
+									<string>IsNotEnabled</string>
+									<key>MenuTitle</key>
+									<string>Cut</string>
+								</dict>
+							</array>
+							<key>ConditionListMatch</key>
+							<string>All</string>
+						</dict>
+						<key>ElseActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>KeyCode</key>
+								<integer>7</integer>
+								<key>MacroActionType</key>
+								<string>SimulateKeystroke</string>
+								<key>Modifiers</key>
+								<integer>256</integer>
+								<key>ReleaseAll</key>
+								<false/>
+							</dict>
+						</array>
 						<key>IsActive</key>
 						<true/>
 						<key>IsDisclosed</key>
 						<false/>
-						<key>JustDisplay</key>
-						<false/>
 						<key>MacroActionType</key>
-						<string>SetClipboardToText</string>
-						<key>Text</key>
-						<string>NOSELECTION</string>
-					</dict>
-					<dict>
-						<key>IsActive</key>
+						<string>IfThenElse</string>
+						<key>ThenActions</key>
+						<array>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>Comment</string>
+								<key>Text</key>
+								<string>This is to check if text is selected or not. If a word or bunch of text is selected, this option gets enabled.</string>
+								<key>Title</key>
+								<string>Menu Command Cut is not available</string>
+							</dict>
+							<dict>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>JustDisplay</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>SetClipboardToText</string>
+								<key>Text</key>
+								<string>NOSELECTION</string>
+							</dict>
+						</array>
+						<key>TimeOutAbortsMacro</key>
 						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>KeyCode</key>
-						<integer>7</integer>
-						<key>MacroActionType</key>
-						<string>SimulateKeystroke</string>
-						<key>Modifiers</key>
-						<integer>256</integer>
-						<key>ReleaseAll</key>
-						<false/>
 					</dict>
 					<dict>
 						<key>Conditions</key>
@@ -1153,9 +1335,9 @@
 								<key>MacroActionType</key>
 								<string>DeletePastClipboard</string>
 								<key>Past</key>
-								<integer>2</integer>
+								<integer>1</integer>
 								<key>PastExpression</key>
-								<string>2</string>
+								<string>1</string>
 							</dict>
 						</array>
 						<key>IsActive</key>
@@ -1240,7 +1422,7 @@
 								<key>IsActive</key>
 								<true/>
 								<key>IsDisclosed</key>
-								<true/>
+								<false/>
 								<key>MacroActionType</key>
 								<string>PauseUntil</string>
 								<key>TimeOutAbortsMacro</key>
@@ -1336,18 +1518,6 @@
 						</array>
 						<key>TimeOutAbortsMacro</key>
 						<true/>
-					</dict>
-					<dict>
-						<key>IsActive</key>
-						<true/>
-						<key>IsDisclosed</key>
-						<false/>
-						<key>MacroActionType</key>
-						<string>DeletePastClipboard</string>
-						<key>Past</key>
-						<integer>1</integer>
-						<key>PastExpression</key>
-						<string>1</string>
 					</dict>
 					<dict>
 						<key>IsActive</key>
