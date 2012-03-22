@@ -38,3 +38,9 @@ some of the scripts are application specific, so i suggest you create a new grou
         - Wrap with (   : all the wrap macros follow above principle
         - Wrap with [
         - Wrap with {
+
+## Global level Macros (KG_KM_Global)
+   
+0.  Kill Mouse Acceleration at login
+
+    see http://journal.kaush.co/475/kill-mouse-acceleration ‎
