@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>IsActive</key>
+		<true/>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>Briefly</string>
+						<key>File</key>
+						<data>
+						AAAAAAGSAAIAAAlLR19NQlBfSEQA
+						AAAAAAAAAAAAAAAAAAAAAADKTZwo
+						SCsAAAAEWsQOa2lsbG1vdXNlYWNj
+						ZWwAAAAAAAAAAAAAAAAAAAAAAAAA
+						AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+						AAAAAAAAAAAAAcfQc8uRGIcAAAAA
+						AAAAAP////8AAAkgAAAAAAAAAAAA
+						AAAAAAAADFV0aWxpdHkgQmVsdAAQ
+						AAgAAMpNcfgAAAARAAgAAMuQ7lcA
+						AAABABAABFrEAARaegAESs0AAL8R
+						AAIAPUtHX01CUF9IRDpVc2VyczoA
+						a2F1c2g6AERyb3Bib3g6AFV0aWxp
+						dHkgQmVsdDoAa2lsbG1vdXNlYWNj
+						ZWwAAA4AHgAOAGsAaQBsAGwAbQBv
+						AHUAcwBlAGEAYwBjAGUAbAAPABQA
+						CQBLAEcAXwBNAEIAUABfAEgARAAS
+						AC9Vc2Vycy9rYXVzaC9Ecm9wYm94
+						L1V0aWxpdHkgQmVsdC9raWxsbW91
+						c2VhY2NlbAAAEwABLwAAFQACAAz/
+						/wAA
+						</data>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>NewFile</key>
+						<string>/Users/kaush/Dropbox/Utility Belt/killmouseaccel</string>
+						<key>Path</key>
+						<string>/Users/kaush/Dropbox/Utility Belt/killmouseaccel</string>
+						<key>Text</key>
+						<string># Check if the killmouseaccel script is installed in the Dropbox folder
+if ! [ -f ~/Dropbox/"Utility Belt"/killmouseaccel ]
+  then
+    echo "You don't have the kill script installed. Will try to connect to the net and install it now"; 
+    curl -O http://ktwit.net/code/killmouseaccel
+    chmod +x killmouseaccel
+    mv killmouseaccel ~/Dropbox/"Utility Belt"/
+fi 
+
+# No run the script
+if [ -f ~/Dropbox/"Utility Belt"/killmouseaccel ]
+  then
+	# first set mouse sensitivity to sane levels
+	defaults write -g com.apple.mouse.scaling 2.0
+	# defaults read -g com.apple.mouse.scaling
+
+    # run the kill mouse script 
+    ~/Dropbox/"Utility Belt"/killmouseaccel mouse
+
+    echo "\nMouse Acceleration: Killed \nMouse:Sensitivity : 2\n";
+
+  else
+    echo "\nCouldn't install the kill Mouse Acceleration script. Sorry nothing done.\n"; 
+fi 
+</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+						<key>Variable</key>
+						<string>Variable</string>
+					</dict>
+				</array>
+				<key>IsActive</key>
+				<true/>
+				<key>Name</key>
+				<string>Kill Mouse Acceleration</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>ExecuteType</key>
+						<string>Login</string>
+						<key>MacroTriggerType</key>
+						<string>Time</string>
+						<key>Repeat</key>
+						<false/>
+						<key>RepeatTime</key>
+						<integer>60</integer>
+						<key>TimeFinishHour</key>
+						<integer>17</integer>
+						<key>TimeFinishMinutes</key>
+						<integer>30</integer>
+						<key>TimeHour</key>
+						<integer>8</integer>
+						<key>TimeMinutes</key>
+						<integer>30</integer>
+						<key>WhichDays</key>
+						<integer>127</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>EE4DB27F-4587-4CBA-B216-E67F138C5147</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>KG_Cron</string>
+		<key>UID</key>
+		<string>0C851A57-C7E3-48C9-8D75-C06F0BE40256</string>
+	</dict>
+</array>
+</plist>
