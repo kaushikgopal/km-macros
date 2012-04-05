@@ -30,6 +30,7 @@ some of the scripts are application specific, so i suggest you create a new grou
     
     + Delete Line
     + Dupicate Line
+    + Edit with BBEdit  : emulates QuickCursor like functionality with KM see [this blog post](http://journal.kaush.co/500/open-with-bbedit-aka-quickcursor-using-keyboard-maestro).
     + Fence Text Block  : Create two long fence lines on selected text
     + MD Inline Link    : Creates a markdown link on the selected text from the clipboard stored URL
     + WrapTextMacros    : see [my blog post on the subject](http://journal.kaush.co/453/true-textmate-like-auto-pairing-with-bbedit-using-keyboard-maestro)
