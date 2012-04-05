@@ -30,6 +30,20 @@
 						<key>IsDisclosed</key>
 						<false/>
 						<key>KeyCode</key>
+						<integer>0</integer>
+						<key>MacroActionType</key>
+						<string>SimulateKeystroke</string>
+						<key>Modifiers</key>
+						<integer>256</integer>
+						<key>ReleaseAll</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>KeyCode</key>
 						<integer>7</integer>
 						<key>MacroActionType</key>
 						<string>SimulateKeystroke</string>
