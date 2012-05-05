@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>IsActive</key>
+		<true/>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>Variable</string>
+						<key>File</key>
+						<data>
+						</data>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>NewFile</key>
+						<string></string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>#!/bin/sh
+# Generate a Random filename
+# Original Author: http://thdonline.wordpress.com/2009/03/14/shell-script-to-generate-random-password/
+# ----------------------------------------
+
+MAXSIZE=12
+rand_fn=""
+CHAR_ARRAY=( 
+q w e r t y u i o p a s d f g h j k l z x c v b n m Q W E R T Y U I O P A S D 
+F G H J K L Z X C V B N M 1 2 3 4 5 6 7 8 9 0 ! @ # $ % ^ &amp; * ( ) 
+)
+
+MODNUM=${#CHAR_ARRAY[*]} 
+
+PWD_LEN=0
+
+while [ $PWD_LEN -lt $MAXSIZE ] 
+do 
+  X=$(($RANDOM%500)) 
+  Y=0 
+  while [ $Y -lt $X ] 
+  do 
+    ((Y++)) 
+    INDEX=$(($RANDOM%$MODNUM))
+  done
+  # echo "${CHAR_ARRAY[$INDEX]}" 
+  rand_fn+=${CHAR_ARRAY[$INDEX]}
+  ((PWD_LEN++)) 
+done
+
+echo "$rand_fn"
+exit 0</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+						<key>Variable</key>
+						<string>archiveName</string>
+					</dict>
+					<dict>
+						<key>Actions</key>
+						<array>
+							<dict>
+								<key>Attribute</key>
+								<string>Parent</string>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>GetFileAttribute</string>
+								<key>Path</key>
+								<string>%Variable%temp%</string>
+								<key>Variable</key>
+								<string>filePath</string>
+							</dict>
+							<dict>
+								<key>Attribute</key>
+								<string>Name</string>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>GetFileAttribute</string>
+								<key>Path</key>
+								<string>%Variable%temp%</string>
+								<key>Variable</key>
+								<string>fileName</string>
+							</dict>
+							<dict>
+								<key>DisplayKind</key>
+								<string>Briefly</string>
+								<key>File</key>
+								<data>
+								</data>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<false/>
+								<key>MacroActionType</key>
+								<string>ExecuteShellScript</string>
+								<key>NewFile</key>
+								<string></string>
+								<key>Path</key>
+								<string></string>
+								<key>Text</key>
+								<string>cd $KMVAR_filePath
+zip -qr ~/Dropbox/Public/"$KMVAR_archiveName.zip" "$KMVAR_fileName"</string>
+								<key>TimeOutAbortsMacro</key>
+								<true/>
+								<key>TrimResults</key>
+								<true/>
+								<key>UseText</key>
+								<true/>
+								<key>Variable</key>
+								<string>growlnotify</string>
+							</dict>
+						</array>
+						<key>Collections</key>
+						<dict>
+							<key>CollectionList</key>
+							<array>
+								<dict>
+									<key>CollectionType</key>
+									<string>FinderSelection</string>
+								</dict>
+							</array>
+						</dict>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>For</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>Variable</key>
+						<string>temp</string>
+					</dict>
+					<dict>
+						<key>DisplayKind</key>
+						<string>Briefly</string>
+						<key>File</key>
+						<data>
+						</data>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>NewFile</key>
+						<string></string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string># Change this to your Dropbox User ID
+DROPBOX_ID="9999999"
+
+filename=~/Dropbox/Public/"$KMVAR_archiveName".zip
+
+if [ -f "$filename" ]
+then
+	FILE=`basename "$filename"`
+	ENCODED_FILENAME=${FILE// /%20}
+	DROPBOX_URL="http://dl.dropbox.com/u/$DROPBOX_ID/$ENCODED_FILENAME"
+	QUERY=$(curl -s https://www.googleapis.com/urlshortener/v1/url -H 'Content-Type: application/json' -d '{"longUrl": "'$DROPBOX_URL'"}')
+	SHORTURL=$(echo $QUERY | grep -Po '"id":.*?[^\\]",' | awk -F \" '{print $(NF-1)}')
+	echo $SHORTURL | tr -d '\n' | pbcopy
+	
+	gURL=$(pbpaste)
+
+	if [ "$gURL" = "Bad request" ] 
+    	then
+       	echo "$gURL : Something went wrong !"
+    	else
+        	echo "\nShareable Link stored on your clipboard "
+    fi
+
+else 
+    echo "The zip file was not found. Please try again.";
+fi</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+						<key>Variable</key>
+						<string>growlnotify</string>
+					</dict>
+				</array>
+				<key>IsActive</key>
+				<true/>
+				<key>Name</key>
+				<string>Share 1. Securely with Dropbox</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>1</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>768</integer>
+						<key>TriggerRepeat</key>
+						<false/>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>5BD8E2E9-2224-4396-B078-39D03428C16B</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>KG_App_Finder</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>Alias</key>
+					<data>
+					AAAAAAFsAAIAAQlLR19NQlBfSEQAAAAAAAAA
+					AAAAAAAAAAAAAADKTZwoSCsAAAAAAHMKRmlu
+					ZGVyLmFwcAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					AAAAAAAAAAC5psoo1ucAAAAAAAAAAP////8A
+					AAkgAAAAAAAAAAAAAAAAAAAADENvcmVTZXJ2
+					aWNlcwAQAAgAAMpNcfgAAAARAAgAAMoorLcA
+					AAABAAwAAABzAAAAZgAAAGUAAgAzS0dfTUJQ
+					X0hEOlN5c3RlbToATGlicmFyeToAQ29yZVNl
+					cnZpY2VzOgBGaW5kZXIuYXBwAAAOABYACgBG
+					AGkAbgBkAGUAcgAuAGEAcABwAA8AFAAJAEsA
+					RwBfAE0AQgBQAF8ASABEABIAJlN5c3RlbS9M
+					aWJyYXJ5L0NvcmVTZXJ2aWNlcy9GaW5kZXIu
+					YXBwABMAAS8A//8AAA==
+					</data>
+					<key>BundleIdentifier</key>
+					<string>com.apple.finder</string>
+					<key>Creator</key>
+					<integer>1296122707</integer>
+					<key>FileType</key>
+					<integer>1179534418</integer>
+					<key>Name</key>
+					<string>Finder.app</string>
+					<key>NewFile</key>
+					<string>/System/Library/CoreServices/Finder.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>UID</key>
+		<string>0129137C-D4D1-4398-8A91-3BD7DC298EE1</string>
+	</dict>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>IsActive</key>
+		<true/>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>Variable</string>
+						<key>File</key>
+						<data>
+						</data>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<false/>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>NewFile</key>
+						<string></string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string>#!/bin/sh
+# Generate a Random filename
+# Original Author: http://thdonline.wordpress.com/2009/03/14/shell-script-to-generate-random-password/
+# ----------------------------------------
+
+MAXSIZE=12
+rand_fn=""
+CHAR_ARRAY=( 
+q w e r t y u i o p a s d f g h j k l z x c v b n m Q W E R T Y U I O P A S D 
+F G H J K L Z X C V B N M 1 2 3 4 5 6 7 8 9 0 ! @ # $ % ^ &amp; * ( ) 
+)
+
+MODNUM=${#CHAR_ARRAY[*]} 
+
+PWD_LEN=0
+
+while [ $PWD_LEN -lt $MAXSIZE ] 
+do 
+  X=$(($RANDOM%500)) 
+  Y=0 
+  while [ $Y -lt $X ] 
+  do 
+    ((Y++)) 
+    INDEX=$(($RANDOM%$MODNUM))
+  done
+  # echo "${CHAR_ARRAY[$INDEX]}" 
+  rand_fn+=${CHAR_ARRAY[$INDEX]}
+  ((PWD_LEN++)) 
+done
+
+echo "$rand_fn"
+exit 0</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+						<key>Variable</key>
+						<string>archiveName</string>
+					</dict>
+					<dict>
+						<key>Actions</key>
+						<array>
+							<dict>
+								<key>Attribute</key>
+								<string>Parent</string>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<true/>
+								<key>MacroActionType</key>
+								<string>GetFileAttribute</string>
+								<key>Path</key>
+								<string>%Variable%temp%</string>
+								<key>Variable</key>
+								<string>filePath</string>
+							</dict>
+							<dict>
+								<key>Attribute</key>
+								<string>Name</string>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<true/>
+								<key>MacroActionType</key>
+								<string>GetFileAttribute</string>
+								<key>Path</key>
+								<string>%Variable%temp%</string>
+								<key>Variable</key>
+								<string>fileName</string>
+							</dict>
+							<dict>
+								<key>DisplayKind</key>
+								<string>Briefly</string>
+								<key>File</key>
+								<data>
+								</data>
+								<key>IsActive</key>
+								<true/>
+								<key>IsDisclosed</key>
+								<true/>
+								<key>MacroActionType</key>
+								<string>ExecuteShellScript</string>
+								<key>NewFile</key>
+								<string></string>
+								<key>Path</key>
+								<string></string>
+								<key>Text</key>
+								<string>cd $KMVAR_filePath
+zip -qr ~/Dropbox/Public/"$KMVAR_archiveName.zip" "$KMVAR_fileName"
+rm -rf "$KMVAR_fileName"</string>
+								<key>TimeOutAbortsMacro</key>
+								<true/>
+								<key>TrimResults</key>
+								<true/>
+								<key>UseText</key>
+								<true/>
+								<key>Variable</key>
+								<string>growlnotify</string>
+							</dict>
+						</array>
+						<key>Collections</key>
+						<dict>
+							<key>CollectionList</key>
+							<array>
+								<dict>
+									<key>CollectionType</key>
+									<string>FinderSelection</string>
+								</dict>
+							</array>
+						</dict>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>For</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>Variable</key>
+						<string>temp</string>
+					</dict>
+					<dict>
+						<key>DisplayKind</key>
+						<string>Briefly</string>
+						<key>File</key>
+						<data>
+						</data>
+						<key>IsActive</key>
+						<true/>
+						<key>IsDisclosed</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteShellScript</string>
+						<key>NewFile</key>
+						<string></string>
+						<key>Path</key>
+						<string></string>
+						<key>Text</key>
+						<string># Change this to your Dropbox User ID
+DROPBOX_ID="99999"
+
+filename=~/Dropbox/Public/"$KMVAR_archiveName".zip
+
+if [ -f "$filename" ]
+then
+	FILE=`basename "$filename"`
+	ENCODED_FILENAME=${FILE// /%20}
+	DROPBOX_URL="http://dl.dropbox.com/u/$DROPBOX_ID/$ENCODED_FILENAME"
+	QUERY=$(curl -s https://www.googleapis.com/urlshortener/v1/url -H 'Content-Type: application/json' -d '{"longUrl": "'$DROPBOX_URL'"}')
+	SHORTURL=$(echo $QUERY | grep -Po '"id":.*?[^\\]",' | awk -F \" '{print $(NF-1)}')
+	echo $SHORTURL | tr -d '\n' | pbcopy
+	
+	gURL=$(pbpaste)
+
+	if [ "$gURL" = "Bad request" ] 
+    	then
+       	echo "$gURL : Something went wrong !"
+    	else
+        	echo "\nShareable Link stored on your clipboard "
+    	fi
+
+else 
+    echo "The zip file was not found. Please try again.";
+fi</string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<true/>
+						<key>UseText</key>
+						<true/>
+						<key>Variable</key>
+						<string>growlnotify</string>
+					</dict>
+				</array>
+				<key>IsActive</key>
+				<true/>
+				<key>Name</key>
+				<string>Share 2. Securely with Dropbox - Remove Originals</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>1</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>768</integer>
+						<key>TriggerRepeat</key>
+						<false/>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>0E4D5439-7336-4144-AB40-AC72B9A100CB</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>KG_App_Finder</string>
+		<key>Targeting</key>
+		<dict>
+			<key>Targeting</key>
+			<string>Included</string>
+			<key>TargetingApps</key>
+			<array>
+				<dict>
+					<key>Alias</key>
+					<data>
+					AAAAAAFsAAIAAQlLR19NQlBfSEQAAAAAAAAA
+					AAAAAAAAAAAAAADKTZwoSCsAAAAAAHMKRmlu
+					ZGVyLmFwcAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					AAAAAAAAAAC5psoo1ucAAAAAAAAAAP////8A
+					AAkgAAAAAAAAAAAAAAAAAAAADENvcmVTZXJ2
+					aWNlcwAQAAgAAMpNcfgAAAARAAgAAMoorLcA
+					AAABAAwAAABzAAAAZgAAAGUAAgAzS0dfTUJQ
+					X0hEOlN5c3RlbToATGlicmFyeToAQ29yZVNl
+					cnZpY2VzOgBGaW5kZXIuYXBwAAAOABYACgBG
+					AGkAbgBkAGUAcgAuAGEAcABwAA8AFAAJAEsA
+					RwBfAE0AQgBQAF8ASABEABIAJlN5c3RlbS9M
+					aWJyYXJ5L0NvcmVTZXJ2aWNlcy9GaW5kZXIu
+					YXBwABMAAS8A//8AAA==
+					</data>
+					<key>BundleIdentifier</key>
+					<string>com.apple.finder</string>
+					<key>Creator</key>
+					<integer>1296122707</integer>
+					<key>FileType</key>
+					<integer>1179534418</integer>
+					<key>Name</key>
+					<string>Finder.app</string>
+					<key>NewFile</key>
+					<string>/System/Library/CoreServices/Finder.app</string>
+				</dict>
+			</array>
+		</dict>
+		<key>UID</key>
+		<string>0129137C-D4D1-4398-8A91-3BD7DC298EE1</string>
+	</dict>
+</array>
+</plist>
