@@ -3469,6 +3469,8 @@
 								<string>DisplayWindow</string>
 								<key>ActionUID</key>
 								<integer>12068</integer>
+								<key>IsActive</key>
+								<false/>
 								<key>IsDisclosed</key>
 								<false/>
 								<key>MacroActionType</key>
@@ -3567,6 +3569,8 @@ Total number of apps: %Variable%Local_AppCount%</string>
 								<integer>12067</integer>
 								<key>DebuggerAction</key>
 								<string>Breakpoint</string>
+								<key>IsActive</key>
+								<false/>
 								<key>IsDisclosed</key>
 								<false/>
 								<key>MacroActionType</key>
@@ -3904,7 +3908,7 @@ Total number of apps: %Variable%Local_AppCount%</string>
 				<key>CreationDate</key>
 				<real>555111481.98335397</real>
 				<key>ModificationDate</key>
-				<real>677444470.46663904</real>
+				<real>677444681.22382903</real>
 				<key>Name</key>
 				<string>wm: tile apps all</string>
 				<key>Triggers</key>
