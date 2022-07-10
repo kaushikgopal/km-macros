@@ -10,6 +10,24 @@ some of the scripts are application specific, so i suggest you create a new grou
 
 # AVAILABLE SCRIPTS
 
+## Text Expansion Macros
+
+### Text Emoji Macros
+
+My carefully curated list of text expansion macros for emojis. I believe this will be my most priced online contribution to this world.
+
+### Text Snippet Macros
+
+Basically all other text snippets that aren't macros. Worth noting there's a bunch of really useful ones for date expansion that have been some of my most used ones e.g.
+
+```
+dt-     today's date formatted as yyyy-mm-dd
+dt/     today's date formatted as yyyy/mm/dd
+dthu    Human readable date - Jul 10, 2022 [Sun]
+```
+
+There's plenty more that i've found to be pretty useful over time.
+
 ## Window Movers
 
 After dabbling with a bunch of really good Window management apps ([Moom](https://manytricks.com/moom/), [BetterSnapTool](https://folivora.ai/bettersnaptool), [Mosaic](https://www.lightpillar.com/mosaic.html), [Divvy](https://mizage.com/windivvy/), [Phoenix](https://github.com/kasper/phoenix)) I switched back to using Keyboard Maestro because it allowed me to program highly specific behaviors that I was looking for. Here's a list of some of the variants:
@@ -32,6 +50,7 @@ After dabbling with a bunch of really good Window management apps ([Moom](https:
 * wm: time machine - take all the windows of the front most app and rearrange them like how time machine on the mac does (see picture below)
 
 ![time machine screenshot](screenshots/time%20machine.jpeg)
+
 
 # ARCHIVES
 
